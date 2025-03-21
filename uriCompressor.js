@@ -1,3 +1,9 @@
+/*
+From: https://github.com/Snail51/URI-Compressor
+Includes code from: https://github.com/nodeca/pako
+Includes code from: https://github.com/LZMA-JS/LZMA-JS
+*/
+
 class URICompressor
 {
     static push(dataString, compressionAlgorithm = "LZMA2", encodingScheme = "URI-B64", maxLength = 8192) //turn data into URL

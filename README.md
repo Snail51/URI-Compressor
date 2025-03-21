@@ -5,9 +5,9 @@
   The purpose of this repo is to take all the work I have done on these projects and migrate them to a self-contained script that can be easily imported into other projects for use.
 
  ## Installation
-  Simply include `uriCompressor.js` in a `<script>` tag in the header of your document.
+  Simply insert the included `uriCompressor-min.js` in a `<script>` tag in the header of your document.
   ```
-  <script src="./uriCompressor.js></script>
+  <script src="./uriCompressor-min.js></script>
   ```
   Once included, `URICompressor` will become a static class available at global scope (attached to `window`).
   *Note that inclusion of this script will also pollute the global scope with the keywords `PAKO` and `LZMA`.*
