@@ -11,7 +11,7 @@ class URICompressor
 
         if(data.length > maxLength)
         {
-            data.error = "Max length exceeded, Expunged!";
+            data.error = "Max length exceeded, data Expunged!";
             data.data = "ERROR";
         }
 
