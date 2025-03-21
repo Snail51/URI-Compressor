@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>GraphViz</title>
+        <link rel="icon" href="./assets/img/icon.png" type="image/x-icon">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <script src="./uriCompressor.js"></script>
+
+        <script>
+            window.mainCompress = function()
+            {
+                var data = document.getElementById("compressDataIN");
+                var compression = document.getElementById("compressCompressionIN");
+                var encoding = document.getElementById("compressEncodingIN");
+                var output = document.getElementById("compressResultOUT");
+
+                var result = window.URICompressor.push(data.value, compression.value, encoding.value, 8192);
+                output.innerHTML = JSON.stringify(result, null, "\t");
+            }
+
+            window.mainDecompress = function()
+            {
+                var data = document.getElementById("decompressDataIN");
+                var compression = document.getElementById("decompressCompressionIN");
+                var encoding = document.getElementById("decompressEncodingIN");
+                var output = document.getElementById("decompressResultOUT");
+
+                var result = window.URICompressor.pull(data.value, compression.value, encoding.value, 8192);
+                output.innerHTML = JSON.stringify(result, null, "\t");
+            }
+        </script>
+
+    </head>
+    <body style="background-color: rgb(44, 46, 54); color: whitesmoke; font-size: 4vmin;">
+        <div style="display: flex; flex-direction: column">
+            <h1>Compression (Raw Text to Compressed Text)</h1>
+            <label for="compressDataIN">Data:</label>
+            <textarea id="compressDataIN" placeholder="Raw Data Here" oninput="window.mainCompress()"></textarea>
+            <label for="compressCompressionIN">Compression Type:</label>
+            <textarea id="compressCompressionIN" placeholder="LZMA2 / ZLIB" oninput="window.mainCompress()"></textarea>
+            <label for="compressEncodingIN">Encoding Type:</label>
+            <textarea id="compressEncodingIN" placeholder="URI-B64" oninput="window.mainCompress()"></textarea>
+            <label for="compressResultOUT">Result:</label>
+            <pre id="compressResultOUT" style="color: cyan"></pre>
+        </div>
+
+        <hr>
+
+        <div style="display: flex; flex-direction: column">
+            <h1>Decompression (Compressed Text to Raw Text)</h1>
+            <label for="decompressDataIN">Data:</label>
+            <textarea id="decompressDataIN" placeholder="Compressed Data Here" oninput="window.mainDecompress()"></textarea>
+            <label for="decompressCompressionIN">Compression Type:</label>
+            <textarea id="decompressCompressionIN" placeholder="LZMA2 / ZLIB" oninput="window.mainDecompress()"></textarea>
+            <label for="decompressEncodingIN">Encoding Type:</label>
+            <textarea id="decompressEncodingIN" placeholder="URI-B64" oninput="window.mainDecompress()"></textarea>
+            <label for="decompressResultOUT">Result:</label>
+            <pre id="decompressResultOUT" style="color: cyan"></pre>
+        </div>
+    </body>
+</html>
