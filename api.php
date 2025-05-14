@@ -6,6 +6,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 $maxLength = 8192;
+$scriptDir = __DIR__;
 
 // unpack encoding over GET (encoded -> raw)
 if ($_SERVER['REQUEST_METHOD'] === 'GET')
@@ -30,13 +31,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET')
     if(!$allPresent)
     {
         echo "Not enough URI parameters provided.";
+        exit;
     }
 
-    $encoding = htmlspecialchars($_GET["enc"]);
-    $compression = htmlspecialchars($_GET["cmpr"]);
-    $data = htmlspecialchars($_GET["data"]);
+    $encoding = htmlspecialchars($_GET["enc"], ENT_HTML5);
+    $compression = htmlspecialchars($_GET["cmpr"], ENT_HTML5);
+    $data = htmlspecialchars($_GET["data"], ENT_HTML5);
 
-    $cmd = "node /mnt/hdd/web/URICompressor/api.js \"DECODE\" \"{$encoding}\" \"{$compression}\" \"{$data}\"";
+    $cmd = "cd \"{$scriptDir}\" ; node ./api.js \"DECODE\" \"{$encoding}\" \"{$compression}\" \"{$data}\"";
     $output = shell_exec($cmd);
 
     echo $output;
@@ -58,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     $requiredKeys = ['enc', 'cmpr', 'data'];
     $allPresent = true;
     foreach ($requiredKeys as $key) {
-        if (!array_key_exists($key, $_GET)) {
+        if (!array_key_exists($key, $_POST)) {
             $allPresent = false;
             break;
         }
@@ -66,13 +68,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     if(!$allPresent)
     {
         echo "Not enough URI parameters provided.";
+        exit;
     }
 
-    $encoding = htmlspecialchars($_GET["enc"]);
-    $compression = htmlspecialchars($_GET["cmpr"]);
-    $data = htmlspecialchars($_GET["data"]);
+    $encoding = htmlspecialchars($_POST["enc"], ENT_HTML5);
+    $compression = htmlspecialchars($_POST["cmpr"], ENT_HTML5);
+    $data = htmlspecialchars($_POST["data"], ENT_HTML5);
 
-    $cmd = "node /mnt/hdd/web/URICompressor/api.js \"ENCODE\" \"{$encoding}\" \"{$compression}\" \"{$data}\"";
+    $cmd = "cd \"{$scriptDir}\" ; node ./api.js \"ENCODE\" \"{$encoding}\" \"{$compression}\" \"{$data}\"";
     $output = shell_exec($cmd);
 
     echo $output;
