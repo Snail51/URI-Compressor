@@ -194,14 +194,7 @@ class URICompressor
 
         function zlib(data)
         {
-            try
-            {
-                data = PAKO.inflate(data);
-            }
-            catch (error)
-            {
-                data = "There was a problem decoding the data in the link.\nAre you sure it was produced by this program?";
-            }
+            data = PAKO.inflate(data);
             return data;
         }
 
