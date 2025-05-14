@@ -6,8 +6,43 @@ Includes code from: https://github.com/LZMA-JS/LZMA-JS
 
 class URICompressor
 {
-    static push(dataString, compressionAlgorithm = "LZMA2", encodingScheme = "URI-B64", maxLength = 8192) //turn data into URL
+    /**
+     * do the same as `this.push` except test all available compression algorithms and return the shortest
+     * DO NOT CALL THIS DIRECTLY; prefer to call this.push() with compressionAlgorithm="BEST"
+     * @param {string} dataString - the data you wish to compress 
+     * @param {string} encodingScheme - the encoding scheme of the data
+     * @param {integer} maxLength - if the result is longer than this amount, abort.
+     * @returns 
+     */
+    static smartPush(dataString, encodingScheme="URI-B64", maxLength=8192)
     {
+        // do `this.push` for all known compression algorithms
+        const algorithms = ["LZMA2", "ZLIB"];
+        let results = new Array();
+        algorithms.forEach((algorithm, index) => {
+            results.push({
+                algorithm: algorithm,
+                result: this.push(dataString, algorithm, encodingScheme, maxLength),
+            })
+        });
+
+        // sort the array by the length of the result
+        results = results.sort((a,b) =>
+            a.result.length - b.result.length
+        );
+
+        // return the shortest result
+        return results[0].result;
+    }
+
+    static push(dataString, compressionAlgorithm = "BEST", encodingScheme = "URI-B64", maxLength = 8192) //turn data into URL
+    {
+        // if "BEST", use this.smartPush
+        if(compressionAlgorithm === "BEST")
+        {
+            return this.smartPush(dataString, encodingScheme, maxLength);
+        }
+
         const encoder = new TextEncoder();
         var data = encoder.encode(dataString);
 

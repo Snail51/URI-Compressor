@@ -72,6 +72,16 @@
                 var result = window.URICompressor.pull(data.value, compression.value, encoding.value, 8192);
                 output.innerHTML = JSON.stringify(result, null, "\t");
             }
+
+            window.smartCompress = function()
+            {
+                var data = document.getElementById("smart-compressDataIN");
+                var encoding = document.getElementById("smart-compressEncodingIN");
+                var output = document.getElementById("smart-compressResultOUT");
+
+                var result = window.URICompressor.push(data.value, "BEST", encoding.value, 8192);
+                output.innerHTML = JSON.stringify(result, null, "\t");
+            }
         </script>
 
     </head>
@@ -97,9 +107,21 @@
             <label for="decompressCompressionIN">Compression Type:</label>
             <textarea id="decompressCompressionIN" placeholder="LZMA2 / ZLIB" oninput="window.mainDecompress()"></textarea>
             <label for="decompressEncodingIN">Encoding Type:</label>
-            <textarea id="decompressEncodingIN" placeholder="URI-B64" oninput="window.mainDecompress()"></textarea>
+            <textarea id="decompressEncodingIN" placeholder="URI-B64" oninput="window.mainDecompress()" value="URI-B64"></textarea>
             <label for="decompressResultOUT">Result:</label>
             <pre id="decompressResultOUT" style="color: cyan"></pre>
+        </div>
+
+        <hr>
+
+        <div style="display: flex; flex-direction: column">
+            <h1>Smart Compression (Use best Algorithm)</h1>
+            <label for="smart-compressDataIN">Data:</label>
+            <textarea id="smart-compressDataIN" placeholder="Raw Data Here" oninput="window.smartCompress()"></textarea>
+            <label for="smart-compressEncodingIN">Encoding Type:</label>
+            <textarea id="smart-compressEncodingIN" placeholder="URI-B64" oninput="window.smartCompress()"></textarea>
+            <label for="smart-compressResultOUT">Result:</label>
+            <pre id="smart-compressResultOUT" style="color: cyan"></pre>
         </div>
     </body>
 </html>
