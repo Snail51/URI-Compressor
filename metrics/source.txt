@@ -1,0 +1,88 @@
+Regular Expression Seminar
+├── ​Metadata
+│   ​├── ​Users
+│   ​│   ​├── ​EXPUNGED
+│   ​│   ​│   ​├── ​EXPUNGED
+│   ​│   ​│   ​├── ​EXPUNGED
+│   ​│   ​│   ​└── ​EXPUNGED
+│   ​│   ​├── ​EXPUNGED
+│   ​│   ​│   ​└── ​EXPUNGED
+│   ​│   ​├── ​EXPUNGED
+│   ​│   ​│   ​├── ​EXPUNGED
+│   ​│   ​│   ​└── ​EXPUNGED
+│   ​│   ​├── ​EXPUNGED
+│   ​│   ​└── ​Reserved Meeting Space
+│   ​└── ​Timestamp
+│   ​    ​├── ​Date of Plan Proposal
+│   ​    ​│   ​└── ​EXPUNGED
+│   ​    ​└── ​Proposed Event Times
+│   ​    ​    ​├── ​- EXPUNGED
+│   ​    ​    ​│   ​├── ​EXPUNGED
+│   ​    ​    ​│   ​└── ​EXPUNGED
+│   ​    ​    ​└── ​- EXPUNGED
+│   ​    ​    ​    ​├── ​EXPUNGED
+│   ​    ​    ​    ​└── ​EXPUNGED
+├── ​Purpose
+│   ​├── ​As a computer scientist, I am familiar with a lot of tools that are extremely powerful but relatively unknown outside of my field
+│   ​├── ​One of these tools is called `Regular Expressions` - https://en.wikipedia.org/wiki/Regular_expression
+│   ​├── ​If there was any single tool I would want to teach the layperson, it would be *Regular Expressions*.
+│   ​│   ​├── ​They are extremely powerful
+│   ​│   ​└── ​I can't imagine life without them
+│   ​└── ​I am looking to provide a free seminar at the EXPUNGED Library to educate the public on this powerful tool to allow them to be more productive
+├── ​What are `Regular Expressions`?
+│   ​├── ​A regular expression is tool for analyzing text based on a pattern. It is widely used in data analysis applications.
+│   ​└── ​A super simple example
+│   ​    ​├── ​RE/Kevin\ Fang/g -> Matches for "Kevin Fang"
+│   ​    ​├── ​RE/Kevin\ F.*/g -> Matches for "Kevin F" followed by any number of any character (ex: "Kevin Fredrick")
+│   ​    ​└── ​RE/Kevin\ F[a-zA-Z]*/g -> Matches for "Kevin F" followed by any number of the characters a-z and A-Z ("Kevin F&123$$=" is not a real name)
+├── ​Target Audience
+│   ​├── ​This seminar will be intended for people who already have general computer proficiency, but who don’t have formal training in computer science.
+│   ​└── ​Desired group size: 7-12
+├── ​Digital Resources
+│   ​├── ​I will provide attendees with the following link: https://regex101.com/
+│   ​│   ​├── ​- This link is a simple Regular Expression sandbox website, complete with interactive visualizers and a general reference
+│   ​│   ​├── ​- I have used this website extensively for many years and trust it fully
+│   ​│   ​└── ​- I have no affiliation with this website
+│   ​└── ​I plan to make a series of example "puzzles" for users to solve after an initial period of instruction
+├── ​Physical Resources
+│   ​├── ​- Projector
+│   ​├── ​- WIFI
+│   ​├── ​- Desks and Chairs
+│   ​└── ​- Certain printed documents
+├── ​Seminar Roadmap
+│   ​├── ​1. Introductions
+│   ​│   ​├── ​- Who I am
+│   ​│   ​├── ​- Why I am qualified
+│   ​│   ​└── ​- Why I think everyone should know about Regular Expressions
+│   ​├── ​2. Introduction to Regular Expressions
+│   ​│   ​├── ​- Provide visual demo of how RegExps work
+│   ​│   ​├── ​- Design some simple RegExps with the class
+│   ​│   ​├── ​- Define a `pattern`
+│   ​│   ​└── ​- Define `matching`
+│   ​├── ​3. Audience Involvement
+│   ​│   ​├── ​- Link attendees to https://regex101.com/ and provide a simple puzzle
+│   ​│   ​├── ​- Walk around, provide individual assistance to help everyone get it
+│   ​│   ​└── ​- Provide an additional, slightly more complex puzzle
+│   ​├── ​4. Up the Ante
+│   ​│   ​├── ​- Work through a more complex, real-world example with the class
+│   ​│   ​├── ​- Provide an example of `greedy vs. lazy` matching
+│   ​│   ​├── ​- Hand out "Regex Cheatsheet"
+│   ​│   ​└── ​- Ask the audience to explain in their own words how what we are doing works
+│   ​├── ​5. Up the Ante (Group)
+│   ​│   ​└── ​- Provide a slightly simpler real-world example and help the audience solve it individually
+│   ​├── ​6. Demonstrating the Possibilities
+│   ​│   ​├── ​- Provide some very high-level examples of how I use Regular Expressions daily to perform massive data processing
+│   ​│   ​└── ​- Make explicit connections between these powers and the audiences' ability to be more productive at work / school
+│   ​└── ​7. Conclusion
+│   ​    ​├── ​- Thank everyone for their time
+│   ​    ​├── ​- Provide optional "take home" examples
+│   ​    ​├── ​- Remind people of my work hours as a computer tutor
+│   ​    ​└── ​- Offer to hang around for a few minutes if anyone wants to chat further individually
+├── ​Marketing Material
+│   ​├── ​Would I make these, or the library?
+│   ​└── ​I am very capable of making some documents/signs for printing.
+└── ​Potential Event Titles
+    ​├── ​- "Search Smarter, Not Harder: Unlocking the Power of Regular Expressions"
+    ​├── ​- "Beyond Ctrl+F: Advanced Text Searching with Regular Expressions"
+    ​├── ​- "Empower Your Workflow with Regular Expressions"
+    ​└── ​- "For Anyone Who's Ever Searched for Something: Learn Regular Expressions"
