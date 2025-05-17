@@ -9,8 +9,8 @@ test_loop()
 {
     local cmpr=$1
     local data=$2
-    local compress=$(curl -s -d "cmpr=${cmpr}&enc=URI-B64&data=${data}" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://tools.snailien.net/URI-Compressor/api.php | jq -r '.data')
-    local decompress=$(curl -s "http://tools.snailien.net/URI-Compressor/api.php?cmpr=${cmpr}&enc=URI-B64&data=${compress}" | jq -r '.data')
+    local compress=$(curl -s -d "cmpr=${cmpr}&enc=URI-B64&data=${data}" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://tools.snailien.net/URI-Compressor/api/api.php | jq -r '.data')
+    local decompress=$(curl -s "http://tools.snailien.net/URI-Compressor/api/api.php?cmpr=${cmpr}&enc=URI-B64&data=${compress}" | jq -r '.data')
     echo "$decompress"
 }
 

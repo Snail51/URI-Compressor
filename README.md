@@ -17,7 +17,7 @@
   The program then collects the GET URI attributes of `data`, `enc`, and `cmpr` to decompress the data and obtain the original string.
 
  ## Demo
-  An interactive demo of this script is available in [demo.html](https://github.com/Snail51/URI-Compressor/blob/main/demo.html).
+  An interactive demo of this script is available in [demo.html](https://github.com/Snail51/URI-Compressor/blob/main/demo.html) ([Interactive Demo](https://tools.snailien.net/URI-Compressor/demo/demo.html))
 
  ## Installation
   Simply insert the included `uriCompressor-min.js` in a `<script>` tag in the header of your document.
@@ -59,13 +59,13 @@
 
  ## Usage - API
   HTTP `GET` and `POST` requests are supported for data compression/decompression. Direct relevant queries to the included `api.php`.
-  **You can also direct queries to my server at https://tools.snailien.net/URI-Compressor/api.php**
+  **You can also direct queries to my server at https://tools.snailien.net/URI-Compressor/api/api.php**
 
   If you want to set up an API handler for yourself, make sure the server doing the execution has NodeJS v16.0.0 or newer and PHP is allowed to execute shell commands.
 
   ***Decompression***
   - HTTP `GET`
-  - Request format: `.../api.php?cmpr=<COMPRESSION>&enc=<ENCODING>&data=<DATA>`
+  - Request format: `.../api/api.php?cmpr=<COMPRESSION>&enc=<ENCODING>&data=<DATA>`
   - Response format:
   ```
   {
@@ -79,7 +79,7 @@
 
   ***Compression***
   - HTTP `POST`
-  - Request format: `curl -d "cmpr=LZMA2&enc=URI-B64&data=Hello%20World%21" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://tools.snailien.net/URI-Compressor/api.php`
+  - Request format: `curl -d "cmpr=LZMA2&enc=URI-B64&data=Hello%20World%21" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://tools.snailien.net/URI-Compressor/api/api.php`
   - Response format:
   ```
   {
