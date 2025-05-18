@@ -11,14 +11,14 @@ generate_random_string()
 generate_from_input()
 {
     local length=$1
-    cat "./source.txt" | tr -d '\t\n\v\f\r ' | fold -w "$length" | head -n 1
+    cat "./source.txt" | tr -d '`\t\n\v\f\r ' | tr -cd '[:print:]' | fold -w "$length" | head -n 1
 }
 
 get_length()
 {
     local cmpr=$1
     local data=$2
-    local compress_length=$(curl -s -d "cmpr=${cmpr}&enc=URI-B64&data=${data}" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://tools.snailien.net/URI-Compressor/api/api.php | jq -r '.length')
+    local compress_length=$(curl -s --retry-all-errors -d "cmpr=${cmpr}&enc=URI-B64&data=${data}" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://tools.snailien.net/URI-Compressor/api/api.php | jq -r '.length')
     echo "$compress_length"
 }
 
